@@ -2,10 +2,12 @@ class BankAccount:
 
     bank_title = "Bank of Dank Memes"
 
-    def __init__(self, name, balance):
+    def __init__(self, name, balance, account_no, routing_no):
         self.name = name
         self.balance = balance
         self.min_balance = 10.0
+        self._account_no = account_no
+        self.__routing_no = routing_no
 
     def deposit(self, amount):
         self.balance += amount
