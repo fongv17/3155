@@ -2,13 +2,10 @@ from BankAccount import BankAccount
 
 class SavingsAccount(BankAccount):
 
-    def __init__(self, name, balance, account_no, routing_no, transfer_limit):
+    def __init__(self, name, account_no, routing_no, balance, interest_rate):
         super().__init__(name, balance, account_no, routing_no)
-        self.transfer_limit = transfer_limit
+        self.interest_rate = interest_rate
 
-    def transfer(self, amount, other_account):
-        if amount > self.balance or amount > self.transfer_limit:
-            print("Insufficient funds or amount exceeds your transfer limit of ",self.transfer_limit)
-        else:
-            self.balance -= amount
-            other_account.balance += amount
+    def add_interest(self):
+        interest = self.interest_rate * self.balance
+        self.balance += interest

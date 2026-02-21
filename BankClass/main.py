@@ -1,18 +1,24 @@
 from BankAccount import BankAccount
-
-bankaccount1 = BankAccount("Fong", 20000)
-bankaccount2 = BankAccount("Dank", 20)
-
-bankaccount1.print_customer_information()
-
-bankaccount1.deposit(100)
-
-bankaccount1.print_customer_information()
-
-bankaccount1.withdraw(20090)
-
-bankaccount1.withdraw(2000)
-
-bankaccount1.print_customer_information()
-
-bankaccount2.print_customer_information()
+from SavingsAccount import SavingsAccount
+from CheckingAccount import CheckingAccount
+checking1 = CheckingAccount("Fong", 10000, 1, 11, 400)
+checking2 = CheckingAccount("Dank", 20000, 1, 12, 1000)
+savings1 = SavingsAccount("Fong", 3, 13, 7000, .04)
+savings2 = SavingsAccount("Dank", 4, 14, 8000, .06)
+#Transfer 500 to savings
+checking1.transfer(500,savings1)
+#exceeds transfer limit
+print(checking1.balance)
+#transfer 400 instead
+checking1.transfer(400,savings1)
+#successful
+print(checking1.balance)
+print(savings1.balance)
+#withdraw from checking1
+checking1.withdraw(500)
+#sucessful withdrawal
+print(checking1.balance)
+#add interest to savings2
+print(savings2.balance)
+savings2.add_interest()
+print(savings2.balance)
